@@ -6,12 +6,12 @@ import './styles/App.css'
 
 function App() {
   return (
-    <div className='main'>
+    <div className='main p'>
         <LoadingSpinner />
-        <header className='weather_header'>
+        <header className='weather_header flex space-between align-center'>
           <div className='weather_header_logo'>
             <span className='weather_header_logo_title'>
-              W <span>F</span>
+              W <small className='relative'>F</small>
             </span>
           </div>
           <SearchBar />
