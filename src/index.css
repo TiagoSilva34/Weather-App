@@ -1,5 +1,89 @@
 #root {
     height: 100vh;
     width: 100vw;
-    background: url('./assets/bg_weather.webp');
+    background: url('./assets/bg_weather.webp') no-repeat;
+    background-size: cover;
+}
+
+body {
+    font-size: 12px;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+}
+
+.flex {
+    display: flex;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.b-bottom {
+    border: 1px solid #FFF;
+}
+
+.m {
+    margin: 1rem;
+}
+
+.mt {
+    margin-top: 1rem ;
+}
+
+.mr {
+    margin-right: 1rem ;
+}
+
+.mb {
+    margin-bottom: 1rem;
+}
+
+.ml {
+    margin-left: 1rem;
+}
+
+.p {
+    padding: 1rem;
+}
+
+.pt {
+    padding-top: 1rem ;
+}
+
+.pr {
+    padding-right: 1rem ;
+}
+
+.mb {
+    padding-bottom: 1rem;
+}
+
+.mp {
+    padding-left: 1rem;
+}
+
+.font-regular {
+    font-weight: 400;
+}
+
+.font-medium {
+    font-weight: 500;
 }
