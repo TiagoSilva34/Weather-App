@@ -28,6 +28,10 @@ body {
     justify-content: space-between;
 }
 
+.justify-center {
+    justify-content: center;
+}
+
 .relative {
     position: relative;
 }
@@ -37,7 +41,7 @@ body {
 }
 
 .b-bottom {
-    border: 1px solid #FFF;
+    border-bottom: 1px solid #FFF;
 }
 
 .m {
@@ -72,11 +76,11 @@ body {
     padding-right: 1rem ;
 }
 
-.mb {
+.pb {
     padding-bottom: 1rem;
 }
 
-.mp {
+.pl {
     padding-left: 1rem;
 }
 
@@ -86,4 +90,14 @@ body {
 
 .font-medium {
     font-weight: 500;
+}
+
+input, button {
+    border: 0;
+}
+
+button {
+    cursor: pointer;
+    background-color: transparent;
+    color: #FFF;
 }
