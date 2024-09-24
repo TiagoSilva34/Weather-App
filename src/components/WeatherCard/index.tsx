@@ -5,44 +5,56 @@ import CloudIcon from '@mui/icons-material/Cloud';
 
 const WeatherCard = () => {
     return (
-        <div className="weather_card_container">
+        <div className="weather_card_container column items-center">
            <section className='weather_card_details'>
-                <header>
+                <header className='font-regular'>
                     Informações sobre o clime
                 </header>
 
-                <main className='weather_card_details_content'>
-                    <h1>Dia ensolarado</h1>
+                <main className='weather_card_details_content p'>
+                    <h1 className='font-medium'>Dia ensolarado</h1>
 
-                    <div className='weather_card_details_feels_like_container'>
-                        <span className='weather_card_details_feels_like_info'></span>
+                    <div className='weather_card_details_info_container'>
+                        <div className='weather_card_details_feels_like_container flex space-between mb mt'>
+                            <span className='weather_card_details_feels_like_info'>Sensação</span>
 
-                        <div className='weather_card_details_value_and_icon_container'>
-                            <span className='weather_card_details_value'>19%</span>
-                            <span className='weather_card_details_icon'>
-                                <DeviceThermostatIcon />
-                            </span>
+                            <div className='flex items-center'>
+                                <span className='weather_card_details_value mr'>21%</span>
+                                <span className='weather_card_details_icon'>
+                                    <DeviceThermostatIcon />
+                                </span>
+                            </div>
                         </div>
 
-                        <div className='weather_card_details_humidity_container'>
-                            <span className='weather_card_details_value'>19%</span>
-                            <span className='weather_card_details_icon'>
-                                <WaterDropIcon />
-                            </span>
+                        <div className='weather_card_details_humidity_container flex space-between mb mt'>
+                            <span className='weather_card_details_humidity_info'>Humidade</span>
+                            <div className='flex items-center'>
+                                <span className='weather_card_details_value mr'>85%</span>
+                                <span className='weather_card_details_icon'>
+                                    <WaterDropIcon />
+                                </span>
+                            </div>
                         </div>
 
-                        <div className='weather_card_details_wind_container'>
-                            <span className='weather_card_details_value'>19%</span>
-                            <span className='weather_card_details_icon'>
-                                <AirIcon />
-                            </span>
+                        <div className='weather_card_details_wind_container flex space-between mb mt'>
+                            <span className='weather_card_details_wind_info'>Vento</span>
+
+                            <div className='flex items-center'>
+                                <span className='weather_card_details_value mr'>4.95 KpH</span>
+                                <span className='weather_card_details_icon'>
+                                    <AirIcon />
+                                </span>
+                            </div>
                         </div>
 
-                        <div className='weather_card_details_clouds_container'>
-                            <span className='weather_card_details_value'>5km/h</span>
-                            <span className='weather_card_details_icon'>
-                                <CloudIcon />
-                            </span>
+                        <div className='weather_card_details_clouds_container flex space-between mb mt'>
+                            <span className='weather_card_details_cloud_info'>Nuvens</span>
+                            <div className='flex items-center'>
+                                <span className='weather_card_details_value mr'>18%</span>
+                                <span className='weather_card_details_icon'>
+                                    <CloudIcon />
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </main>
