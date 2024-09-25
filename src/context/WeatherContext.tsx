@@ -1,10 +1,10 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 
 interface WeatherProviderProps {
     children: React.ReactNode
 }
 
-export const WeatherContext = createContext({})
+export const WeatherContext = createContext<any>("")
 
 
 export const WeatherProvider = ({children}: WeatherProviderProps) => {
@@ -16,6 +16,4 @@ export const WeatherProvider = ({children}: WeatherProviderProps) => {
         </WeatherContext.Provider>
     )
 }
-
-export const useWeatherContext = useContext(WeatherContext)
 
