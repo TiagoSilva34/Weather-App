@@ -8,7 +8,7 @@ const WeatherCard = () => {
         <div className="weather_card_container column items-center">
            <section className='weather_card_details'>
                 <header className='font-regular'>
-                    Informações sobre o clime
+                    Informações sobre o clima
                 </header>
 
                 <main className='weather_card_details_content p'>
