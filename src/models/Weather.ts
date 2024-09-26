@@ -1,6 +1,7 @@
 export interface Weather {
     location: {
-        name: string
+        region: string
+        localtime: string
     }
     current: {
         temp_c: number
