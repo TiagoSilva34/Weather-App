@@ -6,7 +6,6 @@ interface WeatherProviderProps {
 
 export const WeatherContext = createContext<any>("")
 
-
 export const WeatherProvider = ({children}: WeatherProviderProps) => {
     const [location, setLocation] = useState("")
 
