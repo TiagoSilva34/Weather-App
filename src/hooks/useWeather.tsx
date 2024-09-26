@@ -1,13 +1,40 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { WeatherContext } from "../context/WeatherContext"
+import { fetchWeatherData } from "../service/weatherApi"
 
 const useWeather = () => {
+    const { location } = useContext(WeatherContext)
     const [weatherData, setWeatherData] = useState(null)
-    const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        
-    }, [loading])
+        let defaultLocation = ""
+
+        if (!location) {
+            navigator.geolocation.getCurrentPosition(function(location) {
+                defaultLocation = `${location.coords.latitude},${location.coords.longitude}`
     
-    return {weatherData, loading, error}    
+                fetchWeatherData(defaultLocation)
+                .then(response => {
+                    if (response) setWeatherData(response)
+                })
+                .catch(error => {
+                    setError(error)
+                })
+            });
+            
+        } else {
+            fetchWeatherData(location)
+                .then(response => {
+                    if (response) setWeatherData(response)
+                })
+                .catch(error => {
+                    setError(error)
+                })
+        }
+    }, [location])
+    
+    return {weatherData, error}    
 }
+
+export default useWeather
