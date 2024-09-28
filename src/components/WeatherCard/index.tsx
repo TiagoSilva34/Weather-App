@@ -11,7 +11,7 @@ const WeatherCard = () => {
     const data = useWeather()
 
     useEffect(() => {       
-        if (data.weatherData !== null) {
+        if (data.weatherData) {
             setWeatherData(data.weatherData)
         }
     }, [data])
