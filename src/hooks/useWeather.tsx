@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react"
 import { WeatherContext } from "../context/WeatherContext"
-import { fetchWeatherData } from "../service/weatherApi"
+import { fetchForecastData, fetchWeatherData } from "../service/weatherApi"
 
 const useWeather = () => {
     const { location } = useContext(WeatherContext)
     const [weatherData, setWeatherData] = useState(null)
+    const [forecastData, setForecastData] = useState(null)
     const [error, setError] = useState(null)
 
     useEffect(() => {
@@ -14,19 +15,43 @@ const useWeather = () => {
             navigator.geolocation.getCurrentPosition(function(location) {
                 defaultLocation = `${location.coords.latitude},${location.coords.longitude}`
     
-                fetchWeatherData(defaultLocation)
-                .then(response => {
-                    if (response) setWeatherData(response)
-                })
-                .catch(error => {
-                    setError(error)
-                })
+                if (defaultLocation !== "") {
+                    fetchWeatherData(defaultLocation)
+                    .then(response => {
+                        if (response) {
+                            setWeatherData(response)
+                        
+                            fetchForecastData(response.location.name)
+                            .then(forecast => {
+                                if (forecast) setForecastData(forecast)
+                            })
+                            .catch(error => {
+                                setError(error)
+                            })
+                        }
+                    })
+                    .catch(error => {
+                        setError(error)
+                    })
+                    
+                }
             });
             
-        } else {
+        }
+        
+        if (location) {
             fetchWeatherData(location)
                 .then(response => {
-                    if (response) setWeatherData(response)
+                    if (response) {
+                        setWeatherData(response)
+                        fetchForecastData(response.location.name)
+                        .then(forecast => {
+                            if (forecast) setForecastData(forecast)
+                        })
+                        .catch(error => {
+                            setError(error)
+                        })
+                    }
                 })
                 .catch(error => {
                     setError(error)
@@ -34,7 +59,7 @@ const useWeather = () => {
         }
     }, [location])
     
-    return {weatherData, error}    
+    return {weatherData, forecastData, error}    
 }
 
 export default useWeather
