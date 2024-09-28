@@ -1,6 +1,4 @@
-#root {
-    height: 100vh;
-    width: 100vw;
+html, body, #root {
     background: url('./assets/bg_weather.webp') no-repeat;
     background-size: cover;
 }
