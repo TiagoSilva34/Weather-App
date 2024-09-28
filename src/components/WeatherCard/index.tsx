@@ -24,7 +24,7 @@ const WeatherCard = () => {
                 </header>
 
                 <main className='weather_card_details_content p'>
-                    <h1 className='font-medium'>Dia ensolarado</h1>
+                    <h1 className='font-medium'>Condição do clima: <small>{weatherData?.current.condition.text}</small></h1>
 
                     <div className='weather_card_details_info_container'>
                         <div className='weather_card_details_feels_like_container flex space-between mb mt'>
