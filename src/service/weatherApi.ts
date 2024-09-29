@@ -1,25 +1,57 @@
 import { BASE_URL } from "./configApi";
 
-const key = import.meta.env.VITE_API_KEY
-
 export const fetchWeatherData = async(locale: string) => {
     try {
-        const { data } = await BASE_URL.get(`/current.json?key=${key}&q=${locale}&aqi=no&lang=pt`)
+        // const URL = `/current.json?key=${option.key}&q=${locale}&aqi=no&lang=${option.lang}`
+        const { data } = await BASE_URL.get('/current.json', {
+            params: {
+                lang: 'pt',
+                key: import.meta.env.VITE_API_KEY,
+                aqi: 'no',
+                q: locale
+            }
+        })
         
         return data
     } catch (error: any) {
-        console.error(error.message)
-        return null
+        if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            console.log(error.request);
+          } else {
+            console.log(error.message);
+          }
+          console.log(error.config);
     }
 }
 
 export const fetchForecastData = async(locale: string) => {
     try {
-        const { data } = await BASE_URL.get(`forecast.json?key=${key}&q=${locale}&days=7&aqi=no&alerts=no&lang=pt`)
+        const URL = `/forecast.json`
+        const { data } = await BASE_URL.get(URL, {
+            params: {
+                lang: 'pt',
+                days: '7',
+                key: import.meta.env.VITE_API_KEY,
+                aqi: 'no',
+                alerts: 'no',
+                q: locale
+            }
+        })
 
         return data
     } catch (error: any) {
-        console.error(error.message)
-        return null
+        if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            console.log(error.request);
+          } else {
+            console.log(error.message);
+          }
+          console.log(error.config);
     }
 }
