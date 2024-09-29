@@ -15,7 +15,7 @@ const SearchBar = () => {
         <div className="search_bar_container" onSubmit={handleSubmit}>
             <form className="search_bar_form flex items-center b-bottom">
                 <input type="text" value={cityName} className="search_bar_locale font-regular" placeholder='Digite a localidade' onChange={(event) => setCityName(event.target.value)}/>
-                <button type='submit' className="search_bar_search">
+                <button type='submit' className="search_bar_search" aria-label="search city">
                     <SearchIcon className='search_bar_icon_Search' />
                 </button>
             </form>
