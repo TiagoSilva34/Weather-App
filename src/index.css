@@ -3,6 +3,12 @@ html, body, #root {
     background-size: cover;
 }
 
+img {
+    width: auto; /* Or auto*/
+    height: auto; /* Or auto*/
+    object-fit:cover;
+} 
+
 body {
     font-size: 12px;
     color: #FFF;
