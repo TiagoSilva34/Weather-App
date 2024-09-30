@@ -30,3 +30,5 @@ export interface Weather {
         ]
     }
 }
+
+export type ForecastPick = Pick<Weather, 'forecast'>
