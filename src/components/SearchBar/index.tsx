@@ -1,15 +1,15 @@
 import SearchIcon from '@mui/icons-material/Search';
-import { useContext, useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
 import { WeatherContext } from '../../context/WeatherContext';
 
 const SearchBar = () => {
     const [cityName, setCityName] = useState("")
     const { setLocation } = useContext(WeatherContext)
 
-    const handleSubmit = (evt: React.FormEvent) => {
+    const handleSubmit = useCallback((evt: React.FormEvent) => {
         evt.preventDefault()
         setLocation(cityName)
-    }
+    }, [cityName])
 
     return (
         <div className="search_bar_container" onSubmit={handleSubmit}>
