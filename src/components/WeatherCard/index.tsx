@@ -7,14 +7,14 @@ import useWeather from '../../hooks/useWeather';
 import { Weather } from '../../models/Weather';
 
 const WeatherCard = () => {
-    const [weatherData, setWeatherData] = useState<Weather>()
-    const data = useWeather()
+    const [weather, setWeather] = useState<Weather>()
+    const { weatherData } = useWeather()
 
     useEffect(() => {       
-        if (data.weatherData) {
-            setWeatherData(data.weatherData)
+        if (weatherData) {
+            setWeather(weatherData)
         }
-    }, [data])
+    }, [weatherData])
 
     return (
         <div className="weather_card_container column items-center">
@@ -24,14 +24,14 @@ const WeatherCard = () => {
                 </header>
 
                 <main className='weather_card_details_content p'>
-                    <h1 className='font-medium'>Condição do clima: <small>{weatherData?.current.condition.text}</small></h1>
+                    <h1 className='font-medium'>Condição do clima: <small>{weather?.current.condition.text}</small></h1>
 
                     <div className='weather_card_details_info_container'>
                         <div className='weather_card_details_feels_like_container flex space-between mb mt'>
                             <span className='weather_card_details_feels_like_info'>Sensação</span>
 
                             <div className='flex items-center'>
-                                <span className='weather_card_details_value mr'>{Math.floor(weatherData?.current.feelslike_c || 0)}º</span>
+                                <span className='weather_card_details_value mr'>{Math.floor(weather?.current.feelslike_c || 0)}º</span>
                                 <span className='weather_card_details_icon'>
                                     <DeviceThermostatIcon />
                                 </span>
@@ -41,7 +41,7 @@ const WeatherCard = () => {
                         <div className='weather_card_details_humidity_container flex space-between mb mt'>
                             <span className='weather_card_details_humidity_info'>Humidade</span>
                             <div className='flex items-center'>
-                                <span className='weather_card_details_value mr'>{weatherData?.current.humidity}%</span>
+                                <span className='weather_card_details_value mr'>{weather?.current.humidity}%</span>
                                 <span className='weather_card_details_icon'>
                                     <WaterDropIcon />
                                 </span>
@@ -52,7 +52,7 @@ const WeatherCard = () => {
                             <span className='weather_card_details_wind_info'>Vento</span>
 
                             <div className='flex items-center'>
-                                <span className='weather_card_details_value mr'>{weatherData?.current.wind_mph} KpH</span>
+                                <span className='weather_card_details_value mr'>{weather?.current.wind_mph} KpH</span>
                                 <span className='weather_card_details_icon'>
                                     <AirIcon />
                                 </span>
