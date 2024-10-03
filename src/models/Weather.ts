@@ -25,6 +25,8 @@ export interface Weather {
                         text: string
                         icon: string
                     }
+                    uv: number
+                    totalprecip_mm: number
                 }
             }
         ]
