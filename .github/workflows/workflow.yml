@@ -3,7 +3,7 @@ name: Continuous Integration
 on: push
 
 jobs: 
-  continuos-intregation: 
+  continuos-integration: 
     runs-on: ubuntu-latest
 
     steps: 
