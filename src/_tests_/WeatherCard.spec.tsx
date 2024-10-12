@@ -1,5 +1,3 @@
-import WeatherCard from "../components/WeatherCard/index"
-import { render } from "@testing-library/react"
 import axios from "axios"
 
 // Mocking axios
